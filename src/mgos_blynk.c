@@ -144,6 +144,8 @@ static void ev_handler(struct mg_connection *c, int ev, void *ev_data,
       LOG(LL_DEBUG, ("BLYNK CONNECT"));
       blynk_send(c, BLYNK_LOGIN, 1, mgos_sys_config_get_blynk_auth(),
                  strlen(mgos_sys_config_get_blynk_auth()));
+      LOG(LL_DEBUG, ("BLYNK Sending sync command"));
+      blynk_send(c, BLYNK_SYNC, 0, NULL, 0);
       break;
     case MG_EV_RECV:
       while (c->recv_mbuf.len >= BLYNK_HEADER_SIZE) {

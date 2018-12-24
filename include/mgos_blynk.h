@@ -55,6 +55,7 @@ enum blynk_msg_type {
   BLYNK_LOGIN = 2,
   BLYNK_PING = 6,
   BLYNK_HARDWARE = 20,
+  BLYNK_SYNC = 16,
 };
 
 /* Same as as `blynk_send()`, formats message using `printf()` semantics. */
